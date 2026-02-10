@@ -1,0 +1,49 @@
+Week2:
+Assignment Introduction
+In the videos series we are utilizing this semester, the author is working towards building an online shopping application. In each chapter, the author enhances and/or adds new functionality to the application. We will be following along and building our own shopping application throughout the semester.
+Since we have used GitHub in previous WDD courses, you should have an active GitHub account. If you do not, be sure to make one as we will be using GitHub throughout the semester. If you need a refresher on how GitHub works, there is a great tutorial available here
+Each week, you will be adding/enhancing your code and "pushing" those changes to the same repository. This will allow you to gain experience using version management in a
+wav that most development teams do.
+Assignment Instructions
+Step 1 - Create Code
+Follow along with chapters 4 and 5 of the video series (your "reading" assignment this week) and complete the coding that the author walks through.
+• Add middleware to our application
+• Add routing to our application
+• Add views to our application
+Step 2 - Add Code Comments
+In addition to completing the code in the tutorial you also need to add code comments to the following files:
+• aDD.is
+• admin.js (in routes folder)
+• shop.is (in routes folder)
+
+week3:
+Assignment Introduction
+Each week, you will be adding/enhancing your code and "pushing" those changes to the same repository. This will allow you to gain experience using version management in a way that most development teams do.
+Assignment Instructions
+Step 1 - Create Code
+Follow along with chapters 6 and 7 of the video series (your "reading" assignment) and complete the coding that the author walks through.
+Important Notes:
+• In chapter 6, the author mentions that he added a few CSS files. You do not need to create these manually. A zip file containing those CSS files has been attached below. Be sure to add them to your project in the location specified in the video tutorials.
+• You do not need to create the Pug or Handlebars template files shown in the video tutorial.
+Step 2 - Add Code Comments
+In addition to completing the code in the tutorial you also need to add code comments to the following files:
+• error.js (in controllers folder)
+• products.js (in controllers folder)
+
+week4:
+Assignment Introduction
+Each week, you will be adding/enhancing your code and "pushing" those changes to the same repository. This will allow you to gain experience using version management in a way that most development teams do.
+Assignment Instructions
+Step 1 - Create Code
+through.
+Follow along with chapters 8 & 9 of the video series (your "reading" assignment) and complete the coding that the author walks
+Step 2 - Add Code Comments
+In addition to completing the code in the tutorial you also need to add code comments to the following files:
+• shop.js (in controllers folder)
+• admin.is (in controllers folder)
+• cart.is (in models folder)
+Note: the main.js file that the author mentions, but never walks through is attached to this assignment below. If you do not already have it in your code set, be sure to add it.
+Step 3 - Place Code in GitHub
+• Once your code is completed, push any changes to your existing GitHub repository
+• If necessary, make edits to the README.md file in your repository.
+• Copy the URL of your repository and post it into the comments box for this assignment (you do not need to upload any files) and submit.
