@@ -44,12 +44,29 @@ exports.getEditProduct = (req, res, next) => {
 };
 
 exports.postEditProduct = (req, res, next) => {
-  // NOTE: In strict Chapter 10, we usually don't implement the SQL UPDATE 
-  // command immediately, focusing on INSERT/SELECT. 
-  // For now, this redirects to products to avoid crashing.
-  res.redirect('/admin/products');
-};
+  const prodId = req.body.productId;
+  const updatedTitle = req.body.title;
+  const updatedPrice = req.body.price;
+  const updatedImageUrl = req.body.imageUrl;
+  const updatedDesc = req.body.description;
 
+  // Create new product instance with the existing ID
+  const updatedProduct = new Product(
+    prodId,
+    updatedTitle,
+    updatedImageUrl,
+    updatedDesc,
+    updatedPrice
+  );
+
+  // Call save() which will trigger the SQL UPDATE command
+  updatedProduct.save()
+    .then(() => {
+      console.log('UPDATED PRODUCT!');
+      res.redirect('/admin/products');
+    })
+    .catch(err => console.log(err));
+};
 exports.getProducts = (req, res, next) => {
   Product.fetchAll()
     .then(([rows, fieldData]) => {

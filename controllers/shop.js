@@ -39,23 +39,48 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getCart = (req, res, next) => {
-  // Cart is temporarily disabled in Chapter 10 until Sequelize (Chapter 11)
-  // We render an empty cart to prevent errors
-  res.render('shop/cart', {
-    path: '/cart',
-    pageTitle: 'Your Cart',
-    products: []
+  Cart.getCart(cart => {
+    Product.fetchAll()
+      .then(([products]) => {
+        const cartProducts = [];
+        for (let product of products) {
+          // Compare as strings to prevent strict equality issues between SQL Ints and JSON Strings
+          const cartProductData = cart.products.find(
+            prod => prod.id.toString() === product.id.toString()
+          );
+          if (cartProductData) {
+            cartProducts.push({ productData: product, qty: cartProductData.qty });
+          }
+        }
+        res.render('shop/cart', {
+          path: '/cart',
+          pageTitle: 'Your Cart',
+          products: cartProducts
+        });
+      })
+      .catch(err => console.log(err));
   });
 };
 
 exports.postCart = (req, res, next) => {
-  // Placeholder to prevent crash
-  res.redirect('/cart');
+  const prodId = req.body.productId;
+  Product.findById(prodId)
+    .then(([product]) => {
+      // product[0] because MySQL returns an array of rows
+      Cart.addProduct(prodId, product[0].price);
+      res.redirect('/cart');
+    })
+    .catch(err => console.log(err));
 };
 
 exports.postCartDeleteProduct = (req, res, next) => {
-  // Placeholder to prevent crash
-  res.redirect('/cart');
+  const prodId = req.body.productId;
+  Product.findById(prodId)
+    .then(([product]) => {
+      Cart.deleteProduct(prodId, product[0].price);
+      res.redirect('/cart');
+    })
+    .catch(err => console.log(err));
 };
 
 exports.getOrders = (req, res, next) => {
